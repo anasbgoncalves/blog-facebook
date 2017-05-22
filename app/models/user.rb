@@ -4,11 +4,18 @@ class User < ActiveRecord::Base
   devise :omniauthable, :omniauth_providers => [:facebook]
 
   def self.create_from_omniauth(params)
-  	where(email: params.info.email).first_or_create do |user|
-  		user.token = params.credentials.token,
-			user.name = params.info.name,
-			user.email = params.info.email,
-			user.avatar = params.info.image
-		end
+  	user = find_or_create_by(email: params.info.email)
+    user.update({
+  		token: params.credentials.token,
+			name: params.info.name,
+			email: params.info.email,
+			avatar: params.info.image
+    })
+    user
+  end
+
+  def fbgraph
+    fail Exceptions::Facebook::NotPresent unless token
+    Facebook.fbgraph(token)
   end
 end
