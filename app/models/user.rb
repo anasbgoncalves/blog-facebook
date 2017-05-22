@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :omniauthable, :omniauth_providers => [:facebook]
 
   def self.create_from_omniauth(params)
-  	where(email: oarams.info.email).first_or_create do |user| 
+  	where(email: params.info.email).first_or_create do |user|
   		user.token = params.credentials.token,
 			user.name = params.info.name,
 			user.email = params.info.email,

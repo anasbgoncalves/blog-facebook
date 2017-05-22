@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-xs-6 col-xs-offset-3">
+    <div class="row UserCard">
+      <div class="col-xs-2">
+        <%= image_tag current_user.avatar, class: "img-responsive img-circle"%>
+      </div>
+      <div class="col-xs-10">
+        <span class="UserCard-name">
+          <%= current_user.name %>
+        </span>
+        <span class="UserCard-email">
+          <%= current_user.email %>
+        </span>
+        <span class="UserCard-logout">
+          <%= link_to "Logout", destroy_user_session_url, method: :delete %>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
