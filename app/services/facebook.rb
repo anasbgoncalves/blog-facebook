@@ -15,12 +15,8 @@ class Facebook
     Koala::Facebook::API.new(token)
   end
 
-  def self.call(method, fbgraph, params = {}, &block)
-    new(fbgraph, params).send(method, &block)
-  end
-
-  def get_object
-    @fbgraph.get_object(@id, @args, @options)
+  def self.get_object(user, id, args = {}, options = {}, &block)
+    user.fbgraph.get_object(id, args, options, &block)
   end
 
 end

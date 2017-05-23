@@ -8,7 +8,6 @@ class User < ActiveRecord::Base
     user.update({
   		token: params.credentials.token,
 			name: params.info.name,
-			email: params.info.email,
 			avatar: params.info.image
     })
     user
