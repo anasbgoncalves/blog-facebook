@@ -17,11 +17,15 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-6">
-        <%= link_to "Books", books_path %>
-      </div>
-      <div class="col-xs-6">
-        <%= link_to "Movies", movies_path %>
+      <div class="col-xs-12">
+        <ul class="nav nav-tabs">
+          <li role="presentation" class="<%= 'active' if @active_tab == 'books' %>">
+            <%= link_to "Books", books_path %>
+          </li>
+          <li role="presentation" class="<%= 'active' if @active_tab == 'movies' %>">
+            <%= link_to "Movies", movies_path %>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
