@@ -2,13 +2,13 @@
 <div class="row">
   <div class="col-xs-6 col-xs-offset-3">
     <% @books.each do |book| %>
-      <div class="row">
+      <div class="row BookCard">
         <div class="col-xs-2">
           <%= image_tag(book["picture"]["data"]["url"]) %>
         </div>
         <div class="col-xs-10">
-          <%= book["name"] %><br/>
-          <%= book["written_by"] %>
+          <span class="BookCard-name"><%= book["name"] %></span>
+          <span class="BookCard-author"><%= book["written_by"] %></span>
         </div>
       </div>
     <% end %>

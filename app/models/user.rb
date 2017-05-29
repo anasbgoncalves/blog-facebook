@@ -11,9 +11,4 @@ class User < ActiveRecord::Base
     })
     user
   end
-
-  def fbgraph
-    fail Exceptions::Facebook::NotPresent unless token
-    Facebook.fbgraph(token)
-  end
 end
